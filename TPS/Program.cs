@@ -13,7 +13,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
             Console.Clear();
             Console.WriteLine("Trabajos practicos Complejidad Temporal Estructuras de Datos y Algoritmos: \n \n1- Tema 1 (ArbolBinario). \n2- Tema 2 (ArbolesGeneral y Heap). \n3- Tema 3 (Hash). \n4- Tema 4. \n \n0- Salir.");
             Console.WriteLine("Ingrese una opcion:");
-            int opcion = int.Parse(Console.ReadLine());
+            int opcion = ingresarEntero();
             while (opcion != 0)
             {
                 switch (opcion)
@@ -40,10 +40,27 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                 Console.Clear();
                 Console.WriteLine("Trabajos practicos Complejidad Temporal Estructuras de Datos y Algoritmos: \n \n1- Tema 1 (ArbolBinario). \n2- Tema 2 (ArbolesGeneral y Heap). \n3- Tema 3 (Hash). \n4- Tema 4. \n \n0- Salir.");
                 Console.WriteLine("Ingrese una opcion:");
-                opcion = int.Parse(Console.ReadLine());
+                opcion = ingresarEntero();
             }
 
+            int ingresarEntero()
+            {
+                int num;
+                try
+                {
+                    num = int.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("El valor ingresado es incorrecto. \nPor favor intente de nuevo:");
+                    num = ingresarEntero();
+                }
+
+
+                return num;
+            }
             Console.ReadKey();
         }
+        
     }
 }

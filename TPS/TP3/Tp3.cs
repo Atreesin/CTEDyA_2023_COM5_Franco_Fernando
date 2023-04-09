@@ -15,14 +15,15 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         //estrategia de resolución de colisiones de dispersión
         //abierta que permita guardar y acceder
         //a los registros de los empleado por DNI.
-        
+        Hash empleados = new Hash();
+        int opcion;
         public void Iniciar()
         {
-            Hash empleados = new Hash();
+            
             Console.Clear();
             Console.WriteLine("Menu Empleados: \n \n1- Agregar un nuevo empleado. \n2- Buscar un Empleado por su DNI. \n \n0- Salir.");
             Console.Write("\n Ingrese una opcion:");
-            int opcion = int.Parse(Console.ReadLine());
+            opcion = ingresarEntero();
 
             while (opcion != 0)
             {
@@ -48,7 +49,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                         Console.Clear();
 
                         Console.Write("ingrese DNI del empleado: ");
-                        dni = int.Parse(Console.ReadLine());
+                        dni = ingresarEntero();
                         Console.Clear();
 
                         empleados.guardarEmpleado(nombre, apellido, numEmpleado, dni);
@@ -60,7 +61,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                         Console.Write("Ingrese el DNI del empleado: ");
                         try
                         {
-                            Console.WriteLine(empleados.verificarDni(int.Parse(Console.ReadLine())));
+                            Console.WriteLine(empleados.verificarDni(ingresarEntero()));
                         }
                         catch (Exception)
                         {
@@ -80,11 +81,27 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                 Console.Clear();
                 Console.WriteLine("Menu Empleados: \n \n1- Agregar un nuevo empleado. \n2- Buscar un Empleado por su DNI. \n \n0- Salir.");
                 Console.WriteLine("\n Ingrese una opcion:");
-                opcion = int.Parse(Console.ReadLine());
+                opcion = ingresarEntero();
 
             }
             
 
+        }
+        private int ingresarEntero()
+        {
+            int num;
+            try
+            {
+                num = int.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("El valor ingresado es incorrecto. \nPor favor intente de nuevo:");
+                num = ingresarEntero();
+            }
+
+
+            return num;
         }
     }
 }
