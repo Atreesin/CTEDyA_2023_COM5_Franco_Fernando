@@ -1,0 +1,14 @@
+C:\Users\atree\Desktop\ingenieria informatica\CTED&A\TPS\TPS\obj\Debug\netcoreapp3.1\CTEDyA_2023_COM5_Franco_Fernando.csproj.AssemblyReference.cache
+C:\Users\atree\Desktop\ingenieria informatica\CTED&A\TPS\TPS\obj\Debug\netcoreapp3.1\CTEDyA_2023_COM5_Franco_Fernando.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\atree\Desktop\ingenieria informatica\CTED&A\TPS\TPS\obj\Debug\netcoreapp3.1\CTEDyA_2023_COM5_Franco_Fernando.AssemblyInfoInputs.cache
+C:\Users\atree\Desktop\ingenieria informatica\CTED&A\TPS\TPS\obj\Debug\netcoreapp3.1\CTEDyA_2023_COM5_Franco_Fernando.AssemblyInfo.cs
+C:\Users\atree\Desktop\ingenieria informatica\CTED&A\TPS\TPS\obj\Debug\netcoreapp3.1\CTEDyA_2023_COM5_Franco_Fernando.csproj.CoreCompileInputs.cache
+C:\Users\atree\Desktop\ingenieria informatica\CTED&A\TPS\TPS\bin\Debug\netcoreapp3.1\CTEDyA_2023_COM5_Franco_Fernando.exe
+C:\Users\atree\Desktop\ingenieria informatica\CTED&A\TPS\TPS\bin\Debug\netcoreapp3.1\CTEDyA_2023_COM5_Franco_Fernando.deps.json
+C:\Users\atree\Desktop\ingenieria informatica\CTED&A\TPS\TPS\bin\Debug\netcoreapp3.1\CTEDyA_2023_COM5_Franco_Fernando.runtimeconfig.json
+C:\Users\atree\Desktop\ingenieria informatica\CTED&A\TPS\TPS\bin\Debug\netcoreapp3.1\CTEDyA_2023_COM5_Franco_Fernando.runtimeconfig.dev.json
+C:\Users\atree\Desktop\ingenieria informatica\CTED&A\TPS\TPS\bin\Debug\netcoreapp3.1\CTEDyA_2023_COM5_Franco_Fernando.dll
+C:\Users\atree\Desktop\ingenieria informatica\CTED&A\TPS\TPS\bin\Debug\netcoreapp3.1\CTEDyA_2023_COM5_Franco_Fernando.pdb
+C:\Users\atree\Desktop\ingenieria informatica\CTED&A\TPS\TPS\obj\Debug\netcoreapp3.1\CTEDyA_2023_COM5_Franco_Fernando.dll
+C:\Users\atree\Desktop\ingenieria informatica\CTED&A\TPS\TPS\obj\Debug\netcoreapp3.1\CTEDyA_2023_COM5_Franco_Fernando.pdb
+C:\Users\atree\Desktop\ingenieria informatica\CTED&A\TPS\TPS\obj\Debug\netcoreapp3.1\CTEDyA_2023_COM5_Franco_Fernando.genruntimeconfig.cache
