@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\atree\\Desktop\\ingenieria informatica\\CTED&A\\TPS\\TPS\\CTEDyA_2023_COM5_Franco_Fernando.csproj": {}
+    "C:\\Users\\atree\\Desktop\\ingenieria informatica\\CTED&A\\CTEDyA_2023_COM5_Franco_Fernando\\TPS\\CTEDyA_2023_COM5_Franco_Fernando.csproj": {}
   },
   "projects": {
-    "C:\\Users\\atree\\Desktop\\ingenieria informatica\\CTED&A\\TPS\\TPS\\CTEDyA_2023_COM5_Franco_Fernando.csproj": {
+    "C:\\Users\\atree\\Desktop\\ingenieria informatica\\CTED&A\\CTEDyA_2023_COM5_Franco_Fernando\\TPS\\CTEDyA_2023_COM5_Franco_Fernando.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\atree\\Desktop\\ingenieria informatica\\CTED&A\\TPS\\TPS\\CTEDyA_2023_COM5_Franco_Fernando.csproj",
+        "projectUniqueName": "C:\\Users\\atree\\Desktop\\ingenieria informatica\\CTED&A\\CTEDyA_2023_COM5_Franco_Fernando\\TPS\\CTEDyA_2023_COM5_Franco_Fernando.csproj",
         "projectName": "CTEDyA_2023_COM5_Franco_Fernando",
-        "projectPath": "C:\\Users\\atree\\Desktop\\ingenieria informatica\\CTED&A\\TPS\\TPS\\CTEDyA_2023_COM5_Franco_Fernando.csproj",
+        "projectPath": "C:\\Users\\atree\\Desktop\\ingenieria informatica\\CTED&A\\CTEDyA_2023_COM5_Franco_Fernando\\TPS\\CTEDyA_2023_COM5_Franco_Fernando.csproj",
         "packagesPath": "C:\\Users\\atree\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\atree\\Desktop\\ingenieria informatica\\CTED&A\\TPS\\TPS\\obj\\",
+        "outputPath": "C:\\Users\\atree\\Desktop\\ingenieria informatica\\CTED&A\\CTEDyA_2023_COM5_Franco_Fernando\\TPS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
