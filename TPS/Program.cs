@@ -7,86 +7,41 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-
-            ArbolBinario<int> arbol = new ArbolBinario<int>(1);
-            arbol.agregarHijoIzquierdo(new ArbolBinario<int>(21));
-            arbol.agregarHijoDerecho(new ArbolBinario<int>(22));
-            arbol.getHijoIzquierdo().agregarHijoIzquierdo(new ArbolBinario<int>(31));
-            arbol.getHijoIzquierdo().agregarHijoDerecho(new ArbolBinario<int>(32));
-            arbol.getHijoDerecho().agregarHijoIzquierdo(new ArbolBinario<int>(33));
-            arbol.getHijoDerecho().agregarHijoDerecho(new ArbolBinario<int>(34));
-
-            Console.WriteLine("incluye 3: ");
-            Console.WriteLine(arbol.incluye(3));
-            Console.WriteLine("incluye 21: ");
-            Console.WriteLine(arbol.incluye(21));
-            Console.WriteLine("incluye 34: ");
-            Console.WriteLine(arbol.incluye(34));
-
-            Console.WriteLine("InOrden: ");
-            arbol.inorden();
-
-            Console.WriteLine();
-            Console.WriteLine("preOrden: ");
-            arbol.preorden();
-
-            Console.WriteLine();
-            Console.WriteLine("postOrden: ");
-            arbol.postorden();
-
-            Console.WriteLine();
-            Console.WriteLine("ContarHojas: " + arbol.contarHojas());
-
-            try {
-                Console.WriteLine();
-                Console.WriteLine("recorrido entre niveles n=2, m=4: ");
-                arbol.recorridoEntreNiveles(2, 4);
-            }
-
-            catch
-            {
-                Console.WriteLine("Los valores de n y m no son válidos.");
-            }
-
-
-            try
-            {
-                Console.WriteLine();
-                Console.WriteLine("recorrido entre niveles n=2, m=3: ");
-                arbol.recorridoEntreNiveles(2, 3);
-            }
-
-            catch
-            {
-                Console.WriteLine("Los valores de n y m no son válidos.");
-            }
-
-            try
-            {
-                Console.WriteLine();
-                Console.WriteLine("recorrido entre niveles n=1, m=3: ");
-                arbol.recorridoEntreNiveles(1, 3);
-            }
-
-            catch
-            {
-                Console.WriteLine("Los valores de n y m no son válidos.");
-            }
-            try
-            {
-                Console.WriteLine();
-                Console.WriteLine("recorrido entre niveles n=1, m=2: ");
-                arbol.recorridoEntreNiveles(1, 2);
-            }
-
-            catch
-            {
-                Console.WriteLine("Los valores de n y m no son válidos.");
-            }
-
             Tp1 tp1 = new Tp1();
-            tp1.Iniciar();
+            Tp2 tp2 = new Tp2();
+            Tp3 tp3 = new Tp3();
+            Console.Clear();
+            Console.WriteLine("Trabajos practicos Complejidad Temporal Estructuras de Datos y Algoritmos: \n \n1- Tema 1 (ArbolBinario). \n2- Tema 2 (ArbolesGeneral y Heap). \n3- Tema 3 (Hash). \n4- Tema 4. \n \n0- Salir.");
+            Console.WriteLine("Ingrese una opcion:");
+            int opcion = int.Parse(Console.ReadLine());
+            while (opcion != 0)
+            {
+                switch (opcion)
+                {
+                    case 1:
+                        tp1.Iniciar();
+                        break;
+                    case 2:
+                        tp2.Iniciar();
+                        break;
+                    case 3:
+                        tp3.Iniciar();
+                        break;
+                    case 4:
+                        Console.WriteLine("Aun sin implementar");
+                        break;
+
+
+                    default:
+                        Console.WriteLine($"{opcion} no es una opcion valida \npresione una telca para volver a intentar.");
+                        Console.ReadKey();
+                        break;
+                }
+                Console.Clear();
+                Console.WriteLine("Trabajos practicos Complejidad Temporal Estructuras de Datos y Algoritmos: \n \n1- Tema 1 (ArbolBinario). \n2- Tema 2 (ArbolesGeneral y Heap). \n3- Tema 3 (Hash). \n4- Tema 4. \n \n0- Salir.");
+                Console.WriteLine("Ingrese una opcion:");
+                opcion = int.Parse(Console.ReadLine());
+            }
 
             Console.ReadKey();
         }

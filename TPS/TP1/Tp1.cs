@@ -11,13 +11,30 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         private List<ArbolBinario<string>> arbolesStrings = new List<ArbolBinario<string>>();
         private List<ArbolBinario<object>> arbolesObjetos = new List<ArbolBinario<object>>();
 
+        private ArbolBinario<int> testInt = new ArbolBinario<int>(1);
+        private ArbolBinario<string> teststring = new ArbolBinario<string>("pablo");
+        public Tp1()
+        {
+            testInt.agregarHijoIzquierdo(new ArbolBinario<int>(2));
+            testInt.agregarHijoDerecho(new ArbolBinario<int>(3));
+            testInt.getHijoIzquierdo().agregarHijoIzquierdo(new ArbolBinario<int>(4));
+            testInt.getHijoDerecho().agregarHijoIzquierdo(new ArbolBinario<int>(5));
+            arbolesEnteros.Add(testInt);
+            teststring.agregarHijoIzquierdo(new ArbolBinario<string>("jose"));
+            teststring.agregarHijoDerecho(new ArbolBinario<string>("marta"));
+            teststring.getHijoIzquierdo().agregarHijoIzquierdo(new ArbolBinario<string>("Alf"));
+            teststring.getHijoDerecho().agregarHijoIzquierdo(new ArbolBinario<string>("Hamburguesa"));
+            arbolesStrings.Add(teststring);
+        }
         public void Iniciar()
         {
             
+            
             Console.Clear();
-            Console.WriteLine("Menu ArbolesBinarios: \n \n1- crear un arbol. \n2- recorridos. \n3- buscar elemento en un arbol. \n4- eliminar arbol. \n \n0- Salir.");
+            Console.WriteLine(ingresarNiveles());
+            Console.WriteLine("Menu ArbolesBinarios: \n \n1- crear un ArbolBinario. \n2- recorridos. \n3- buscar elemento en un ArbolBinario de enteros. \n4- buscar elemento en un ArbolBinario de strings.  \n5- eliminar ArbolBinario. \n \n0- Salir.");
             Console.WriteLine("Ingrese una opcion:");
-            int opcion = int.Parse(Console.ReadLine());
+            int opcion = ingresarEntero();
             while (opcion != 0)
             {
                 switch (opcion)
@@ -32,6 +49,9 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                         buscarElementoEntero();
                         break;
                     case 4:
+                        buscarElementoString();
+                        break;
+                    case 5:
                         eliminarArbol();
                         break;
 
@@ -42,9 +62,9 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                         break;
                 }
                 Console.Clear();
-                Console.WriteLine("Menu ArbolesBinarios: \n \n1- crear un arbol. \n2- recorridos. \n3- buscar elemento en un arbol. \n4- eliminar arbol. \n \n0- Salir.");
+                Console.WriteLine("Menu ArbolesBinarios: \n \n1- crear un ArbolBinario. \n2- recorridos. \n3- buscar elemento en un ArbolBinario de enteros. \n4- buscar elemento en un ArbolBinario de strings.  \n5- eliminar ArbolBinario. \n \n0- Salir.");
                 Console.WriteLine("Ingrese una opcion:");
-                opcion = int.Parse(Console.ReadLine());
+                opcion = ingresarEntero();
             }
 
         }
@@ -52,9 +72,9 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         private void crearArbol()
         {
             Console.Clear();
-            Console.WriteLine("Menu Crear Arbol: \n  \n1- crear un arbol de enteros. \n2- crear un arbol de strings. \n \n0- Salir.");
+            Console.WriteLine("Menu Crear ArbolBinario: \n  \n1- crear un arbol de enteros. \n2- crear un arbol de strings. \n \n0- Salir.");
             Console.WriteLine("Ingrese una opcion:");
-            int opcion = int.Parse(Console.ReadLine());
+            int opcion = ingresarEntero();
             while (opcion != 0)
             {
                 switch (opcion)
@@ -75,9 +95,9 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
 
                 }
                 Console.Clear();
-                Console.WriteLine("Menu Crear Arbol: \n \n1- crear un arbol de enteros. \n2- crear un arbol de strings. \n \n0- Salir.");
+                Console.WriteLine("Menu Crear ArbolBinario: \n \n1- crear un arbol de enteros. \n2- crear un arbol de strings. \n \n0- Salir.");
                 Console.WriteLine("Ingrese una opcion:");
-                opcion = int.Parse(Console.ReadLine());
+                opcion = ingresarEntero();
             }
         }
 
@@ -85,11 +105,11 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         {
             
             Console.WriteLine("Ingrese dato (entero):");
-            int dato = int.Parse(Console.ReadLine());
+            int dato = ingresarEntero();
             ArbolBinario<int> arbolEnteros = new ArbolBinario<int>(dato);
             Console.Clear();
             Console.WriteLine($"Desea agregarle un hijo izquierdo al {dato}? \n1- Si. \n2- No.");
-            int Opc = int.Parse(Console.ReadLine());
+            int Opc = ingresarEntero();
             if (Opc == 1)
             {
                 Console.Clear();
@@ -98,7 +118,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
             }
             Console.Clear();
             Console.WriteLine($"Desea agregarle un hijo derecho al {dato}? \n1- Si. \n2- No.");
-            int Opc2 = int.Parse(Console.ReadLine());
+            int Opc2 = ingresarEntero();
             if (Opc2 == 1)
             {
                 Console.Clear();
@@ -117,7 +137,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
             ArbolBinario<string> arbolStrings = new ArbolBinario<string>(dato);
             Console.Clear();
             Console.WriteLine($"Desea agregarle un hijo izquierdo a {dato}? \n1- Si. \n2- No.");
-            int Opc = int.Parse(Console.ReadLine());
+            int Opc = ingresarEntero();
             if (Opc == 1)
             {
                 Console.Clear();
@@ -126,7 +146,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
             }
             Console.Clear();
             Console.WriteLine($"Desea agregarle un hijo derecho a {dato}? \n1- Si. \n2- No.");
-            int Opc2 = int.Parse(Console.ReadLine());
+            int Opc2 = ingresarEntero();
             if (Opc2 == 1)
             {
                 Console.Clear();
@@ -163,9 +183,9 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         private void recorridos()
         {
             Console.Clear();
-            Console.WriteLine("Menu Recorridos: \n \n1- Recorridos de arbol de enteros. \n2- Recorridos de arbol de strings. \n \n0- Salir.");
+            Console.WriteLine("Menu Recorridos - ArbolBinario: \n \n1- Recorridos de arbol de enteros. \n2- Recorridos de arbol de strings. \n \n0- Salir.");
             Console.WriteLine("Ingrese una opcion:");
-            int opcion = int.Parse(Console.ReadLine());
+            int opcion = ingresarEntero();
             while (opcion != 0)
             {
                 switch (opcion)
@@ -186,23 +206,23 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
 
                 }
                 Console.Clear();
-                Console.WriteLine("Menu Recorridos: \n \n1- Recorridos de arbol de enteros. \n2- Recorridos de arbol de strings. \n \n0- Salir.");
+                Console.WriteLine("Menu Recorridos - Arbol Binario: \n \n1- Recorridos de arbol de enteros. \n2- Recorridos de arbol de strings. \n \n0- Salir.");
                 Console.WriteLine("Ingrese una opcion:");
-                opcion = int.Parse(Console.ReadLine());
+                opcion = ingresarEntero();
             }
         }
 
         private void recorridoEnteros()
         {
             Console.Clear();
-            Console.WriteLine("Menu Recorrido de arbol de enteros:");
+            Console.WriteLine("Menu Recorrido de ArbolBinario de enteros:");
             for (int i = 0; i < arbolesEnteros.Count; i++)
             {
                 Console.WriteLine(i+1 +" - " + arbolesEnteros[i].getDatoRaiz());
             }
             Console.WriteLine("0 - Salir");
             Console.WriteLine("Elija un arbol:");
-            int opcion = int.Parse(Console.ReadLine());
+            int opcion = ingresarEntero();
             while (opcion != 0)
             {
                 if(opcion-1 < arbolesEnteros.Count)
@@ -211,27 +231,27 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                 }
                 
                 Console.Clear();
-                Console.WriteLine("Menu Recorrido de arbol de enteros:");
+                Console.WriteLine("Menu Recorrido de ArbolBinario de enteros:");
                 for (int i = 0; i < arbolesEnteros.Count; i++)
                 {
                     Console.WriteLine(i + 1 + " - " + arbolesEnteros[i].getDatoRaiz());
                 }
                 Console.WriteLine("0 - Salir");
                 Console.WriteLine("Elija un arbol:");
-                opcion = int.Parse(Console.ReadLine());
+                opcion = ingresarEntero();
             }
         }
         private void recorridoStrings()
         {
             Console.Clear();
-            Console.WriteLine("Menu Recorrido de arbol de strings:");
+            Console.WriteLine("Menu Recorrido de ArbolBinario de strings:");
             for (int i = 0; i < arbolesStrings.Count; i++)
             {
                 Console.WriteLine(i + 1 + " - " + arbolesStrings[i].getDatoRaiz());
             }
             Console.WriteLine("0 - Salir");
             Console.WriteLine("Elija un arbol:");
-            int opcion = int.Parse(Console.ReadLine());
+            int opcion = ingresarEntero();
             while (opcion != 0)
             {
                 if (opcion - 1 < arbolesStrings.Count)
@@ -240,60 +260,67 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                 }
 
                 Console.Clear();
-                Console.WriteLine("Menu Recorrido de arbol de enteros:");
+                Console.WriteLine("Menu Recorrido de ArbolBinario de enteros:");
                 for (int i = 0; i < arbolesStrings.Count; i++)
                 {
                     Console.WriteLine(i + 1 + " - " + arbolesStrings[i].getDatoRaiz());
                 }
                 Console.WriteLine("0 - Salir");
                 Console.WriteLine("Elija un arbol:");
-                opcion = int.Parse(Console.ReadLine());
+                opcion = ingresarEntero();
             }
         }
 
         private void recorrerEntero(ArbolBinario<int> arbol)
         {
             Console.Clear();
-            Console.WriteLine("Menu Recorridos: \n \n \n1- InOrden. \n2- PreOrden. \n3- PostOrden \n4- PorNiveles. \n5- EntreNiveles. \n \n0- Salir.");
+            Console.WriteLine("Menu Recorridos - ArbolBinario de enteros: \n \n \n1- InOrden. \n2- PreOrden. \n3- PostOrden \n4- PorNiveles. \n5- EntreNiveles. \n \n0- Salir.");
             Console.Write("\n Ingrese una opcion:");
-            int opcion = int.Parse(Console.ReadLine());
+            int opcion = ingresarEntero();
             while (opcion != 0)
             {
                 switch (opcion)
                 {
                     case 1:
                         Console.Clear();
-                        Console.WriteLine("Recorrido InOrden:");
+                        Console.WriteLine($"Recorrido InOrden del ArbolBinario de enteros ({arbol.getDatoRaiz()}):");
                         arbol.inorden();
                         Console.ReadKey();
                         break;
                     case 2:
                         Console.Clear();
-                        Console.WriteLine("Recorrido PreOrden:");
+                        Console.WriteLine($"Recorrido PreOrden del ArbolBinario de enteros ({arbol.getDatoRaiz()}):");
                         arbol.preorden();
                         Console.ReadKey();
                         break;
                     case 3:
                         Console.Clear();
-                        Console.WriteLine("Recorrido PostOrden:");
+                        Console.WriteLine($"Recorrido PostOrden del ArbolBinario de enteros ({arbol.getDatoRaiz()}):");
                         arbol.postorden();
                         Console.ReadKey();
                         break;
                     case 4:
                         Console.Clear();
-                        Console.WriteLine("Recorrido PorNiveles:");
+                        Console.WriteLine($"Recorrido PorNiveles del ArbolBinario de enteros ({arbol.getDatoRaiz()}):");
                         arbol.recorridoPorNiveles();
                         Console.ReadKey();
                         break;
                     case 5:
                         Console.Clear();
                         Console.WriteLine("Recorrido entre nivel (ingrese nivel):");
-                        int n = int.Parse(Console.ReadLine());
+                        int n = ingresarEntero();
                         Console.WriteLine("y el nivel (ingrese segundo nivel):");
-                        int m = int.Parse(Console.ReadLine());
+                        int m = ingresarEntero();
                         Console.Clear();
-                        Console.WriteLine($"Recorrido entre niveles {n} y {m}:");
-                        arbol.recorridoEntreNiveles(n, m);
+                        Console.WriteLine($"Recorrido entre niveles {n} y {m} del ArbolBinario de enteros ({arbol.getDatoRaiz()}):");
+                        try
+                        {
+                            arbol.recorridoEntreNiveles(n, m);
+                        }
+                        catch
+                        {
+                            Console.WriteLine($"Los niveles {n} y {m} no son validos.");
+                        }
                         Console.ReadKey();
                         break;
 
@@ -304,55 +331,63 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
 
                 }
                 Console.Clear();
-                Console.WriteLine("Menu Recorridos: \n \n1- InOrden. \n2- PreOrden. \n3- PostOrden \n4- PorNiveles. \n5- EntreNiveles. \n \n0- Salir.");
+                Console.WriteLine("Menu Recorridos - ArbolBinario de enteros: \n \n1- InOrden. \n2- PreOrden. \n3- PostOrden \n4- PorNiveles. \n5- EntreNiveles. \n \n0- Salir.");
                 Console.Write("\n Ingrese una opcion:");
-                opcion = int.Parse(Console.ReadLine());
+                opcion = ingresarEntero();
             }
         }
 
         private void recorrerString(ArbolBinario<string> arbol)
         {
             Console.Clear();
-            Console.WriteLine("Menu Recorridos: \n \n \n1- InOrden. \n2- PreOrden. \n3- PostOrden \n4- PorNiveles. \n5- EntreNiveles. \n \n0- Salir.");
+            Console.WriteLine("Menu Recorridos - ArbolBinario de strings: \n \n \n1- InOrden. \n2- PreOrden. \n3- PostOrden \n4- PorNiveles. \n5- EntreNiveles. \n \n0- Salir.");
             Console.Write("\n Ingrese una opcion:");
-            int opcion = int.Parse(Console.ReadLine());
+            int opcion = ingresarEntero();
             while (opcion != 0)
             {
                 switch (opcion)
                 {
                     case 1:
                         Console.Clear();
-                        Console.WriteLine("Recorrido InOrden:");
+                        Console.WriteLine($"Recorrido InOrden del ArbolBinario de strings ({arbol.getDatoRaiz()}):");
                         arbol.inorden();
                         Console.ReadKey();
                         break;
                     case 2:
                         Console.Clear();
-                        Console.WriteLine("Recorrido PreOrden:");
+                        Console.WriteLine($"Recorrido PreOrden del ArbolBinario de strings ({arbol.getDatoRaiz()}):");
                         arbol.preorden();
                         Console.ReadKey();
                         break;
                     case 3:
                         Console.Clear();
-                        Console.WriteLine("Recorrido PostOrden:");
+                        Console.WriteLine($"Recorrido PostOrden del ArbolBinario de strings ({arbol.getDatoRaiz()}):");
                         arbol.postorden();
                         Console.ReadKey();
                         break;
                     case 4:
                         Console.Clear();
-                        Console.WriteLine("Recorrido PorNiveles:");
+                        Console.WriteLine($"Recorrido PorNiveles del ArbolBinario de strings ({arbol.getDatoRaiz()}):");
                         arbol.recorridoPorNiveles();
                         Console.ReadKey();
                         break;
                     case 5:
                         Console.Clear();
                         Console.WriteLine("Recorrido entre nivel (ingrese nivel):");
-                        int n = int.Parse(Console.ReadLine());
+                        int n = ingresarEntero();
                         Console.WriteLine("y el nivel (ingrese segundo nivel):");
-                        int m = int.Parse(Console.ReadLine());
+                        int m = ingresarEntero();
                         Console.Clear();
-                        Console.WriteLine($"Recorrido entre niveles {n} y {m}:");
-                        arbol.recorridoEntreNiveles(n, m);
+                        Console.WriteLine($"Recorrido entre niveles {n} y {m} del ArbolBinario de strings ({arbol.getDatoRaiz()}):");
+                        try
+                        {
+                            arbol.recorridoEntreNiveles(n, m);
+                        }
+                        catch
+                        {
+                            Console.WriteLine($"Los niveles {n} y {m} no son validos.");
+                        }
+                        
                         Console.ReadKey();
                         break;
 
@@ -363,9 +398,9 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
 
                 }
                 Console.Clear();
-                Console.WriteLine("Menu Recorridos: \n \n1- InOrden. \n2- PreOrden. \n3- PostOrden \n4- PorNiveles. \n5- EntreNiveles. \n \n0- Salir.");
+                Console.WriteLine("Menu Recorridos - ArbolBinario de strings: \n \n1- InOrden. \n2- PreOrden. \n3- PostOrden \n4- PorNiveles. \n5- EntreNiveles. \n \n0- Salir.");
                 Console.Write("\n Ingrese una opcion:");
-                opcion = int.Parse(Console.ReadLine());
+                opcion = ingresarEntero();
             }
         }
 
@@ -376,14 +411,14 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         private void buscarElementoEntero()
         {
             Console.Clear();
-            Console.WriteLine("Menu Buscar un elemento en un arbol de enteros:");
+            Console.WriteLine("Menu Buscar un elemento en un ArbolBinario de enteros:");
             for (int i = 0; i < arbolesEnteros.Count; i++)
             {
                 Console.WriteLine(i + 1 + " - " + arbolesEnteros[i].getDatoRaiz());
             }
             Console.WriteLine("0 - Salir");
             Console.WriteLine("Elija un arbol:");
-            int opcion = int.Parse(Console.ReadLine());
+            int opcion = ingresarEntero();
             while (opcion != 0)
             {
                 if (opcion - 1 < arbolesEnteros.Count)
@@ -392,43 +427,74 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                 }
 
                 Console.Clear();
-                Console.WriteLine("Menu Recorrido de arbol de enteros:");
+                Console.WriteLine("Menu Buscar un elemento en un ArbolBinario de enteros:");
                 for (int i = 0; i < arbolesEnteros.Count; i++)
                 {
                     Console.WriteLine(i + 1 + " - " + arbolesEnteros[i].getDatoRaiz());
                 }
                 Console.WriteLine("0 - Salir");
                 Console.WriteLine("Elija un arbol:");
-                opcion = int.Parse(Console.ReadLine());
+                opcion = ingresarEntero();
             }
         }
 
         private void buscarEntero(ArbolBinario<int> arbol)
         {
             Console.Clear();
-            Console.WriteLine($"Inserte el elemento que desea buscar en el arbol {arbol}");
-            int elemento = int.Parse(Console.ReadLine());
+            Console.WriteLine($"Inserte el elemento que desea buscar en el ArbolBinario ({arbol.getDatoRaiz()})");
+            int elemento = ingresarEntero();
             if (arbol.incluye(elemento))
             {
-                Console.WriteLine($"El elemento {elemento} SI existe en el arbol {arbol}");
+                Console.WriteLine($"El elemento {elemento} SI existe en el ArbolBinario ({arbol.getDatoRaiz()})");
             }
             else
             {
-                Console.WriteLine($"El elemento {elemento} NO existe en el arbol {arbol}");
+                Console.WriteLine($"El elemento {elemento} NO existe en el ArbolBinario ({arbol.getDatoRaiz()})");
+            }
+        }
+
+
+        private void buscarElementoString()
+        {
+            Console.Clear();
+            Console.WriteLine("Menu Buscar un elemento en un ArbolBinario de strings:");
+            for (int i = 0; i < arbolesStrings.Count; i++)
+            {
+                Console.WriteLine(i + 1 + " - " + arbolesStrings[i].getDatoRaiz());
+            }
+            Console.WriteLine("0 - Salir");
+            Console.WriteLine("Elija un arbol:");
+            int opcion = ingresarEntero();
+            while (opcion != 0)
+            {
+                if (opcion - 1 < arbolesStrings.Count)
+                {
+                    buscarString(arbolesStrings[opcion - 1]);
+                }
+
+                Console.Clear();
+                Console.WriteLine("Menu Buscar un elemento en un ArbolBinario de strings:");
+                for (int i = 0; i < arbolesStrings.Count; i++)
+                {
+                    Console.WriteLine(i + 1 + " - " + arbolesStrings[i].getDatoRaiz());
+                }
+                Console.WriteLine("0 - Salir");
+                Console.WriteLine("Elija un arbol:");
+                opcion = ingresarEntero();
             }
         }
         private void buscarString(ArbolBinario<string> arbol)
         {
             Console.Clear();
-            Console.WriteLine($"Inserte el elemento que desea buscar en el arbol {arbol}");
+            Console.WriteLine($"Inserte el elemento que desea buscar en el ArbolBinario ({arbol.getDatoRaiz()})");
             string elemento = Console.ReadLine();
             if (arbol.incluye(elemento))
             {
-                Console.WriteLine($"El elemento {elemento} SI existe en el arbol {arbol}");
+                Console.WriteLine($"El elemento {elemento} SI existe en el ArbolBinario ({arbol.getDatoRaiz()})");
             }
             else
             {
-                Console.WriteLine($"El elemento {elemento} NO existe en el arbol {arbol}");
+                Console.WriteLine($"El elemento {elemento} NO existe en el ArbolBinario ({arbol.getDatoRaiz()})");
             }
         }
 
@@ -437,7 +503,44 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         //**************************//
         private void eliminarArbol()
         {
-
+            Console.WriteLine("sin implementar");
+            Console.ReadKey();
         }
+
+
+        //********************//
+        //**   Auxiliares   **//
+        //********************//
+
+        private int[] ingresarNiveles()
+        {
+            int[] niveles = new int[2];
+            Console.WriteLine("Recorrido entre nivel (ingrese nivel):");
+            int n = ingresarEntero();
+            Console.WriteLine("y el nivel (ingrese segundo nivel):");
+            int m = ingresarEntero();
+            niveles[0] = n;
+            niveles[1] = m;
+            
+            return niveles;
+        }
+
+        private int ingresarEntero()
+        {
+            int num;
+            try
+            {
+                num = int.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("El valor ingresado es incorrecto. \nPor favor intente de nuevo:");
+                num = ingresarEntero();
+            }
+            
+
+            return num;
+        }
+
     }
 }

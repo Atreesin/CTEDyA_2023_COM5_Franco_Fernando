@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CTEDyA_2023_COM5_Franco_Fernando
 {
-    class Tp4
+    class Tp3
     {
         //Los empleados de una cierta compañía se representan
         //en la base de datos de la compañía
