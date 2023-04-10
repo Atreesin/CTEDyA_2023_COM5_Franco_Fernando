@@ -59,7 +59,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                         break;
                 }
                 Console.Clear();
-                Console.WriteLine("Menu ArbolesBinarios: \n \n1- crear un ArbolBinario. \n2- recorridos de un ArbolBinario. \n3- buscar elemento en un ArbolBinario de enteros. \n4- buscar elemento en un ArbolBinario de strings.  \n5- eliminar ArbolBinario. \n \n0- Salir.");
+                Console.WriteLine("Menu ArbolesBinarios: \n \n1- crear un ArbolBinario. \n2- recorridos de un ArbolBinario. \n3- buscar elemento en un ArbolBinario.  \n4- eliminar ArbolBinario. \n \n0- Salir.");
                 Console.WriteLine("Ingrese una opcion:");
                 opcion = ingresarEntero();
             }
@@ -184,6 +184,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                     Console.WriteLine($"La opcion {opcion} no es valida. Por favor intente de nuevo:");
                     opcion = ingresarEntero();
                 }
+                
             }
             
 
@@ -443,7 +444,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         private void buscarElementos()
         {
             Console.Clear();
-            Console.WriteLine("Menu Recorridos de ArbolGeneral: \n \n1- Buscar Elementos en un ArbolGeneral de enteros. \n2- Buscar Elementos en un ArbolGeneral de strings. \n \n0- Salir.");
+            Console.WriteLine("Menu buscar elementos en un ArbolBinario: \n \n1- Buscar Elementos en un ArbolBinario de enteros. \n2- Buscar Elementos en un ArbolBinario de strings. \n \n0- Salir.");
             Console.WriteLine("Ingrese una opcion:");
             opcion = ingresarEntero();
             while (opcion != 0)
@@ -466,7 +467,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
 
                 }
                 Console.Clear();
-                Console.WriteLine("Menu Recorridos de ArbolGeneral: \n \n1- Buscar Elementos en un ArbolGeneral de enteros. \n2- Buscar Elementos en un ArbolGeneral de strings. \n \n0- Salir.");
+                Console.WriteLine("Menu buscar elementos en un ArbolBinario: \n \n1- Buscar Elementos en un ArbolBinario de enteros. \n2- Buscar Elementos en un ArbolBinario de strings. \n \n0- Salir.");
                 Console.WriteLine("Ingrese una opcion:");
                 opcion = ingresarEntero();
             }
@@ -477,7 +478,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
             Console.WriteLine("Menu Buscar un elemento en un ArbolBinario de enteros:");
             for (int i = 0; i < arbolesEnteros.Count; i++)
             {
-                Console.WriteLine(i + 1 + " - " + arbolesEnteros[i].getDatoRaiz());
+                Console.WriteLine($"{i + 1}- ({arbolesEnteros[i].getDatoRaiz()})  -  Altura: {arbolesEnteros[i].Altura()}");
             }
             Console.WriteLine("0 - Salir");
             Console.WriteLine("Elija un arbol:");
@@ -493,7 +494,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                 Console.WriteLine("Menu Buscar un elemento en un ArbolBinario de enteros:");
                 for (int i = 0; i < arbolesEnteros.Count; i++)
                 {
-                    Console.WriteLine(i + 1 + " - " + arbolesEnteros[i].getDatoRaiz());
+                    Console.WriteLine($"{i + 1}- ({arbolesEnteros[i].getDatoRaiz()})  -  Altura: {arbolesEnteros[i].Altura()}");
                 }
                 Console.WriteLine("0 - Salir");
                 Console.WriteLine("Elija un arbol:");
@@ -525,7 +526,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
             Console.WriteLine("Menu Buscar un elemento en un ArbolBinario de strings:");
             for (int i = 0; i < arbolesStrings.Count; i++)
             {
-                Console.WriteLine(i + 1 + " - " + arbolesStrings[i].getDatoRaiz());
+                Console.WriteLine($"{i + 1}- ({arbolesStrings[i].getDatoRaiz()})  -  Altura: {arbolesStrings[i].Altura()}");
             }
             Console.WriteLine("0 - Salir");
             Console.WriteLine("Elija un arbol:");
@@ -541,7 +542,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                 Console.WriteLine("Menu Buscar un elemento en un ArbolBinario de strings:");
                 for (int i = 0; i < arbolesStrings.Count; i++)
                 {
-                    Console.WriteLine(i + 1 + " - " + arbolesStrings[i].getDatoRaiz());
+                    Console.WriteLine($"{i + 1}- ({arbolesStrings[i].getDatoRaiz()})  -  Altura: {arbolesStrings[i].Altura()}");
                 }
                 Console.WriteLine("0 - Salir");
                 Console.WriteLine("Elija un arbol:");
@@ -566,13 +567,97 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         }
 
         //**************************//
-        //*** eliminar Elementos ***//
+        //***  eliminar Arboles  ***//
         //**************************//
         private void eliminarArbol()
         {
             Console.Clear();
-            Console.WriteLine("implementar");
-            Console.ReadKey();
+            Console.WriteLine("Menu Eliminar un ArbolBinario: \n \n1- Eliminar un ArbolBinario de enteros. \n2- Eliminar un ArbolBinario de strings. \n \n0- Salir.");
+            Console.WriteLine("Ingrese una opcion:");
+            opcion = ingresarEntero();
+            while (opcion != 0)
+            {
+                switch (opcion)
+                {
+                    case 1:
+                        Console.Clear();
+                        eliminarArbolEntero();
+                        break;
+                    case 2:
+                        Console.Clear();
+                        eliminarArbolString();
+                        break;
+
+                    default:
+                        Console.WriteLine($"{opcion} no es una opcion valida \npresione una telca para volver a intentar.");
+                        Console.ReadKey();
+                        break;
+
+                }
+                Console.Clear();
+                Console.WriteLine("Menu Eliminar un ArbolBinario: \n \n1- Eliminar un ArbolBinario de enteros. \n2- Eliminar un ArbolBinario de strings. \n \n0- Salir.");
+                Console.WriteLine("Ingrese una opcion:");
+                opcion = ingresarEntero();
+            }
+        }
+
+        public void eliminarArbolEntero()
+        {
+            Console.Clear();
+            Console.WriteLine("Menu eliminar un ArbolBinario de enteros:");
+            for (int i = 0; i < arbolesEnteros.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}- ({arbolesEnteros[i].getDatoRaiz()})  -  Alto: {arbolesEnteros[i].Altura()}");
+            }
+            Console.WriteLine("\n0 - Salir\n");
+            Console.WriteLine("Elija un arbol:");
+            opcion = ingresarEntero();
+            while (opcion != 0)
+            {
+                if (opcion - 1 < arbolesEnteros.Count)
+                {
+                    arbolesEnteros.RemoveAt(opcion - 1);
+                }
+
+                Console.Clear();
+                Console.WriteLine("Menu eliminar un ArbolBinario de strings:");
+                for (int i = 0; i < arbolesEnteros.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1}- ({arbolesEnteros[i].getDatoRaiz()})  -  Alto: {arbolesEnteros[i].Altura()}");
+                }
+                Console.WriteLine("\n0 - Salir\n");
+                Console.WriteLine("Elija un arbol:");
+                opcion = ingresarEntero();
+            }
+        }
+        public void eliminarArbolString()
+        {
+            Console.Clear();
+            Console.WriteLine("Menu eliminar un ArbolBinario de strings:");
+            for (int i = 0; i < arbolesStrings.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}- ({arbolesStrings[i].getDatoRaiz()})  -  Alto: {arbolesStrings[i].Altura()}");
+            }
+            Console.WriteLine("\n0 - Salir\n");
+            Console.WriteLine("Elija un arbol:");
+            opcion = ingresarEntero();
+            while (opcion != 0)
+            {
+                if (opcion - 1 < arbolesStrings.Count)
+                {
+                    arbolesStrings.RemoveAt(opcion - 1);
+                }
+
+                Console.Clear();
+                Console.WriteLine("Menu eliminar elemento en un ArbolBinario de strings:");
+                for (int i = 0; i < arbolesStrings.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1}- ({arbolesStrings[i].getDatoRaiz()})  -  Alto: {arbolesStrings[i].Altura()}");
+                }
+                Console.WriteLine("\n0 - Salir\n");
+                Console.WriteLine("Elija un arbol:");
+                opcion = ingresarEntero();
+            }
         }
 
 

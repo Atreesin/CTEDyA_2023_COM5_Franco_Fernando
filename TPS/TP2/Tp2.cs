@@ -124,7 +124,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                 }
                 else
                 {
-                    
+                    Console.WriteLine($"La opcion {opcion} no es valida por vavor intente de nuevo:");
                 }
                 opcion = ingresarEntero();
             }
@@ -348,7 +348,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         private void buscarElementos()
         {
             Console.Clear();
-            Console.WriteLine("Menu Recorridos de ArbolGeneral: \n \n1- Buscar Elementos en un ArbolGeneral de enteros. \n2- Buscar Elementos en un ArbolGeneral de strings. \n \n0- Salir.");
+            Console.WriteLine("Menu buscar elementos en un ArbolGeneral: \n \n1- Buscar Elementos en un ArbolGeneral de enteros. \n2- Buscar Elementos en un ArbolGeneral de strings. \n \n0- Salir.");
             Console.WriteLine("Ingrese una opcion:");
             opcion = ingresarEntero();
             while (opcion != 0)
@@ -371,7 +371,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
 
                 }
                 Console.Clear();
-                Console.WriteLine("Menu Recorridos de ArbolGeneral: \n \n1- Buscar Elementos en un ArbolGeneral de enteros. \n2- Buscar Elementos en un ArbolGeneral de strings. \n \n0- Salir.");
+                Console.WriteLine("Menu buscar elementos en un ArbolGeneral: \n \n1- Buscar Elementos en un ArbolGeneral de enteros. \n2- Buscar Elementos en un ArbolGeneral de strings. \n \n0- Salir.");
                 Console.WriteLine("Ingrese una opcion:");
                 opcion = ingresarEntero();
             }
@@ -382,7 +382,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
             Console.WriteLine("Menu Buscar un elemento en un ArbolGeneral de enteros:");
             for (int i = 0; i < arbolesEnteros.Count; i++)
             {
-                Console.WriteLine(i + 1 + " - " + arbolesEnteros[i].getDatoRaiz());
+                Console.WriteLine($"{i + 1}- ({arbolesEnteros[i].getDatoRaiz()})  -  Ancho: {arbolesEnteros[i].ancho()}  -  Alto: {arbolesEnteros[i].altura()}");
             }
             Console.WriteLine("\n0 - Salir\n");
             Console.WriteLine("Elija un arbol:");
@@ -395,10 +395,10 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                 }
 
                 Console.Clear();
-                Console.WriteLine("Menu Recorrido de ArbolGeneral de enteros:");
+                Console.WriteLine("Menu Buscar un elemento en un ArbolGeneral de strings:");
                 for (int i = 0; i < arbolesEnteros.Count; i++)
                 {
-                    Console.WriteLine(i + 1 + " - " + arbolesEnteros[i].getDatoRaiz());
+                    Console.WriteLine($"{i + 1}- ({arbolesEnteros[i].getDatoRaiz()})  -  Ancho: {arbolesEnteros[i].ancho()}  -  Alto: {arbolesEnteros[i].altura()}");
                 }
                 Console.WriteLine("\n0 - Salir\n");
                 Console.WriteLine("Elija un arbol:");
@@ -429,7 +429,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
             Console.WriteLine("Menu Buscar un elemento en un ArbolGeneral de strings:");
             for (int i = 0; i < arbolesStrings.Count; i++)
             {
-                Console.WriteLine(i + 1 + " - " + arbolesStrings[i].getDatoRaiz());
+                Console.WriteLine($"{i + 1}- ({arbolesStrings[i].getDatoRaiz()})  -  Ancho: {arbolesStrings[i].ancho()}  -  Alto: {arbolesStrings[i].altura()}");
             }
             Console.WriteLine("\n0 - Salir\n");
             Console.WriteLine("Elija un arbol:");
@@ -442,10 +442,10 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                 }
 
                 Console.Clear();
-                Console.WriteLine("Menu Recorrido de ArbolGeneral de enteros:");
+                Console.WriteLine("Menu Buscar un elemento en un ArbolGeneral de strings:");
                 for (int i = 0; i < arbolesStrings.Count; i++)
                 {
-                    Console.WriteLine(i + 1 + " - " + arbolesStrings[i].getDatoRaiz());
+                    Console.WriteLine($"{i + 1}- ({arbolesStrings[i].getDatoRaiz()})  -  Ancho: {arbolesStrings[i].ancho()}  -  Alto: {arbolesStrings[i].altura()}");
                 }
                 Console.WriteLine("\n0 - Salir\n");
                 Console.WriteLine("Elija un arbol:");
@@ -470,12 +470,99 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         }
 
         //**************************//
-        //*** eliminar Elementos ***//
+        //***  eliminar Arboles  ***//
         //**************************//
         private void eliminarArbol()
         {
+            Console.Clear();
+            Console.WriteLine("Menu Eliminar un ArbolGeneral: \n \n1- Eliminar un ArbolGeneral de enteros. \n2- Eliminar un ArbolGeneral de strings. \n \n0- Salir.");
+            Console.WriteLine("Ingrese una opcion:");
+            opcion = ingresarEntero();
+            while (opcion != 0)
+            {
+                switch (opcion)
+                {
+                    case 1:
+                        Console.Clear();
+                        eliminarArbolEntero();
+                        break;
+                    case 2:
+                        Console.Clear();
+                        eliminarArbolString();
+                        break;
 
+                    default:
+                        Console.WriteLine($"{opcion} no es una opcion valida \npresione una telca para volver a intentar.");
+                        Console.ReadKey();
+                        break;
+
+                }
+                Console.Clear();
+                Console.WriteLine("Menu Eliminar un ArbolGeneral: \n \n1- Eliminar un ArbolGeneral de enteros. \n2- Eliminar un ArbolGeneral de strings. \n \n0- Salir."); 
+                Console.WriteLine("Ingrese una opcion:");
+                opcion = ingresarEntero();
+            }
         }
+
+        public void eliminarArbolEntero()
+        {
+            Console.Clear();
+            Console.WriteLine("Menu eliminar un ArbolGeneral de enteros:");
+            for (int i = 0; i < arbolesEnteros.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}- ({arbolesEnteros[i].getDatoRaiz()})  -  Ancho: {arbolesEnteros[i].ancho()}  -  Alto: {arbolesEnteros[i].altura()}");
+            }
+            Console.WriteLine("\n0 - Salir\n");
+            Console.WriteLine("Elija un arbol:");
+            opcion = ingresarEntero();
+            while (opcion != 0)
+            {
+                if (opcion - 1 < arbolesEnteros.Count)
+                {
+                    arbolesEnteros.RemoveAt(opcion - 1);
+                }
+
+                Console.Clear();
+                Console.WriteLine("Menu eliminar un ArbolGeneral de strings:");
+                for (int i = 0; i < arbolesEnteros.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1}- ({arbolesEnteros[i].getDatoRaiz()})  -  Ancho: {arbolesEnteros[i].ancho()}  -  Alto: {arbolesEnteros[i].altura()}");
+                }
+                Console.WriteLine("\n0 - Salir\n");
+                Console.WriteLine("Elija un arbol:");
+                opcion = ingresarEntero();
+            }
+        }
+        public void eliminarArbolString()
+        {
+            Console.Clear();
+            Console.WriteLine("Menu eliminar un ArbolGeneral de strings:");
+            for (int i = 0; i < arbolesStrings.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}- ({arbolesStrings[i].getDatoRaiz()})  -  Ancho: {arbolesStrings[i].ancho()}  -  Alto: {arbolesStrings[i].altura()}");
+            }
+            Console.WriteLine("\n0 - Salir\n");
+            Console.WriteLine("Elija un arbol:");
+            opcion = ingresarEntero();
+            while (opcion != 0)
+            {
+                if (opcion - 1 < arbolesStrings.Count)
+                {
+                    arbolesStrings.RemoveAt(opcion - 1);
+                }
+
+                Console.Clear();
+                Console.WriteLine("Menu eliminar elemento en un ArbolGeneral de strings:");
+                for (int i = 0; i < arbolesStrings.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1}- ({arbolesStrings[i].getDatoRaiz()})  -  Ancho: {arbolesStrings[i].ancho()}  -  Alto: {arbolesStrings[i].altura()}");
+                }
+                Console.WriteLine("\n0 - Salir\n");
+                Console.WriteLine("Elija un arbol:");
+                opcion = ingresarEntero();
+            }
+        }
+
 
         //********************//
         //**   Auxiliares   **//
