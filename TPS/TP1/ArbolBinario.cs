@@ -246,7 +246,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
 
 		}
 
-		private int Altura()
+		public int Altura()
 		{
 			if (this.esHoja())
 			{
@@ -269,7 +269,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
 			return 1 + Math.Max(alturaIzquierdo, alturaDerecho);
 		}
 
-
+		
 
 
 
@@ -277,4 +277,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
 
 
 	}
+
+
+	
 }

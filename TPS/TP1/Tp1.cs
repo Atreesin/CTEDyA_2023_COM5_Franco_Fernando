@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace CTEDyA_2023_COM5_Franco_Fernando
 {
     public class Tp1
@@ -30,11 +31,8 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         }
         public void Iniciar()
         {
-            
-            
             Console.Clear();
-            Console.WriteLine(ingresarNiveles());
-            Console.WriteLine("Menu ArbolesBinarios: \n \n1- crear un ArbolBinario. \n2- recorridos. \n3- buscar elemento en un ArbolBinario de enteros. \n4- buscar elemento en un ArbolBinario de strings.  \n5- eliminar ArbolBinario. \n \n0- Salir.");
+            Console.WriteLine("Menu ArbolesBinarios: \n \n1- crear un ArbolBinario. \n2- recorridos de un ArbolBinario. \n3- buscar elemento en un ArbolBinario. \n4- eliminar ArbolBinario. \n \n0- Salir.");
             Console.WriteLine("Ingrese una opcion:");
             opcion = ingresarEntero();
             while (opcion != 0)
@@ -48,12 +46,9 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                         recorridos();
                         break;
                     case 3:
-                        buscarElementoEntero();
+                        buscarElementos();
                         break;
                     case 4:
-                        buscarElementoString();
-                        break;
-                    case 5:
                         eliminarArbol();
                         break;
 
@@ -64,7 +59,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                         break;
                 }
                 Console.Clear();
-                Console.WriteLine("Menu ArbolesBinarios: \n \n1- crear un ArbolBinario. \n2- recorridos. \n3- buscar elemento en un ArbolBinario de enteros. \n4- buscar elemento en un ArbolBinario de strings.  \n5- eliminar ArbolBinario. \n \n0- Salir.");
+                Console.WriteLine("Menu ArbolesBinarios: \n \n1- crear un ArbolBinario. \n2- recorridos de un ArbolBinario. \n3- buscar elemento en un ArbolBinario de enteros. \n4- buscar elemento en un ArbolBinario de strings.  \n5- eliminar ArbolBinario. \n \n0- Salir.");
                 Console.WriteLine("Ingrese una opcion:");
                 opcion = ingresarEntero();
             }
@@ -74,7 +69,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         private void crearArbol()
         {
             Console.Clear();
-            Console.WriteLine("Menu Crear ArbolBinario: \n  \n1- crear un arbol de enteros. \n2- crear un arbol de strings. \n \n0- Salir.");
+            Console.WriteLine("Menu Crear ArbolBinario: \n  \n1- crear un ArbolBinario de enteros. \n2- crear un ArbolBinario de strings. \n \n0- Salir.");
             Console.WriteLine("Ingrese una opcion:");
             opcion = ingresarEntero();
             while (opcion != 0)
@@ -97,7 +92,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
 
                 }
                 Console.Clear();
-                Console.WriteLine("Menu Crear ArbolBinario: \n \n1- crear un arbol de enteros. \n2- crear un arbol de strings. \n \n0- Salir.");
+                Console.WriteLine("Menu Crear ArbolBinario: \n \n1- crear un ArbolBinario de enteros. \n2- crear un ArbolBinario de strings. \n \n0- Salir.");
                 Console.WriteLine("Ingrese una opcion:");
                 opcion = ingresarEntero();
             }
@@ -105,28 +100,46 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
 
         private ArbolBinario<int> crearArbolEnteros()
         {
-            
+            Console.WriteLine("Creando un ArbolBinario de enteros");
             Console.WriteLine("Ingrese dato (entero):");
             int dato = ingresarEntero();
             ArbolBinario<int> arbolEnteros = new ArbolBinario<int>(dato);
             Console.Clear();
-            Console.WriteLine($"Desea agregarle un hijo izquierdo al {dato}? \n1- Si. \n2- No.");
+            Console.WriteLine($"Desea agregarle un hijo izquierdo al ({dato})? \n1- Si. \n2- No.");
             opcion = ingresarEntero();
-            if (opcion == 1)
+            while(opcion != 2)
             {
-                Console.Clear();
-                Console.WriteLine($"Hijo izquierdo de: {dato}");
-                arbolEnteros.agregarHijoIzquierdo(crearArbolEnteros());
+                if (opcion == 1)
+                {
+                    Console.Clear();
+                    Console.WriteLine($"Hijo izquierdo de ({dato}):");
+                    arbolEnteros.agregarHijoIzquierdo(crearArbolEnteros());
+                }
+                else
+                {
+                    Console.WriteLine($"La opcion {opcion} no es valida. Por favor intente de nuevo:");
+                    opcion = ingresarEntero();
+                }
             }
+            
             Console.Clear();
-            Console.WriteLine($"Desea agregarle un hijo derecho al {dato}? \n1- Si. \n2- No.");
+            Console.WriteLine($"Desea agregarle un hijo derecho al ({dato})? \n1- Si. \n2- No.");
             opcion = ingresarEntero();
-            if (opcion == 1)
+            while(opcion != 2)
             {
-                Console.Clear();
-                Console.WriteLine($"Hijo derecho de: {dato}");
-                arbolEnteros.agregarHijoDerecho(crearArbolEnteros());
+                if (opcion == 1)
+                {
+                    Console.Clear();
+                    Console.WriteLine($"Hijo derecho de ({dato}):");
+                    arbolEnteros.agregarHijoDerecho(crearArbolEnteros());
+                }
+                else
+                {
+                    Console.WriteLine($"La opcion {opcion} no es valida. Por favor intente de nuevo:");
+                    opcion = ingresarEntero();
+                }
             }
+            
 
 
             return arbolEnteros;
@@ -140,22 +153,39 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
             Console.Clear();
             Console.WriteLine($"Desea agregarle un hijo izquierdo a {dato}? \n1- Si. \n2- No.");
             opcion = ingresarEntero();
-            if (opcion == 1)
+            while (opcion != 2)
             {
-                Console.Clear();
-                Console.WriteLine($"Hijo izquierdo de: {dato}");
-                arbolStrings.agregarHijoIzquierdo(crearArbolStrings());
+                if (opcion == 1)
+                {
+                    Console.Clear();
+                    Console.WriteLine($"Hijo izquierdo de: {dato}");
+                    arbolStrings.agregarHijoIzquierdo(crearArbolStrings());
+                }
+                else
+                {
+                    Console.WriteLine($"La opcion {opcion} no es valida. Por favor intente de nuevo:");
+                    opcion = ingresarEntero();
+                }
             }
+            
             Console.Clear();
             Console.WriteLine($"Desea agregarle un hijo derecho a {dato}? \n1- Si. \n2- No.");
             opcion = ingresarEntero();
-            if (opcion == 1)
+            while(opcion != 2)
             {
-                Console.Clear();
-                Console.WriteLine($"Hijo derecho de: {dato}");
-                arbolStrings.agregarHijoDerecho(crearArbolStrings());
+                if (opcion == 1)
+                {
+                    Console.Clear();
+                    Console.WriteLine($"Hijo derecho de: {dato}");
+                    arbolStrings.agregarHijoDerecho(crearArbolStrings());
+                }
+                else
+                {
+                    Console.WriteLine($"La opcion {opcion} no es valida. Por favor intente de nuevo:");
+                    opcion = ingresarEntero();
+                }
             }
-
+            
 
             return arbolStrings;
 
@@ -410,6 +440,37 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         //************************//
         //*** buscar Elementos ***//
         //************************//
+        private void buscarElementos()
+        {
+            Console.Clear();
+            Console.WriteLine("Menu Recorridos de ArbolGeneral: \n \n1- Buscar Elementos en un ArbolGeneral de enteros. \n2- Buscar Elementos en un ArbolGeneral de strings. \n \n0- Salir.");
+            Console.WriteLine("Ingrese una opcion:");
+            opcion = ingresarEntero();
+            while (opcion != 0)
+            {
+                switch (opcion)
+                {
+                    case 1:
+                        Console.Clear();
+                        buscarElementoEntero();
+                        break;
+                    case 2:
+                        Console.Clear();
+                        buscarElementoString();
+                        break;
+
+                    default:
+                        Console.WriteLine($"{opcion} no es una opcion valida \npresione una telca para volver a intentar.");
+                        Console.ReadKey();
+                        break;
+
+                }
+                Console.Clear();
+                Console.WriteLine("Menu Recorridos de ArbolGeneral: \n \n1- Buscar Elementos en un ArbolGeneral de enteros. \n2- Buscar Elementos en un ArbolGeneral de strings. \n \n0- Salir.");
+                Console.WriteLine("Ingrese una opcion:");
+                opcion = ingresarEntero();
+            }
+        }
         private void buscarElementoEntero()
         {
             Console.Clear();
@@ -448,10 +509,12 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
             if (arbol.incluye(elemento))
             {
                 Console.WriteLine($"El elemento {elemento} SI existe en el ArbolBinario ({arbol.getDatoRaiz()})");
+                Console.ReadKey();
             }
             else
             {
                 Console.WriteLine($"El elemento {elemento} NO existe en el ArbolBinario ({arbol.getDatoRaiz()})");
+                Console.ReadKey();
             }
         }
 
@@ -493,10 +556,12 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
             if (arbol.incluye(elemento))
             {
                 Console.WriteLine($"El elemento {elemento} SI existe en el ArbolBinario ({arbol.getDatoRaiz()})");
+                Console.ReadKey();
             }
             else
             {
                 Console.WriteLine($"El elemento {elemento} NO existe en el ArbolBinario ({arbol.getDatoRaiz()})");
+                Console.ReadKey();
             }
         }
 
@@ -505,7 +570,8 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         //**************************//
         private void eliminarArbol()
         {
-            Console.WriteLine("sin implementar");
+            Console.Clear();
+            Console.WriteLine("implementar");
             Console.ReadKey();
         }
 

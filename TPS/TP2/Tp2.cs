@@ -14,7 +14,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         {
 
             Console.Clear();
-            Console.WriteLine("Menu ArbolesGenerales: \n \n1- crear un arbol. \n2- recorridos. \n3- buscar elemento en un arbol. \n4- eliminar arbol. \n \n0- Salir.");
+            Console.WriteLine("Menu ArbolesGenerales: \n \n1- crear un ArbolGeneral. \n2- recorridos de ArbolesGenerales. \n3- buscar elemento en un ArbolGeneral. \n4- eliminar ArbolGeneral. \n \n0- Salir.");
             Console.WriteLine("Ingrese una opcion:");
             opcion = ingresarEntero();
             while (opcion != 0)
@@ -28,9 +28,9 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                         recorridos();
                         break;
                     case 3:
-                        buscarElementoEntero();
+                        buscarElementos();
                         break;
-                    case 4:
+                    case 5:
                         eliminarArbol();
                         break;
 
@@ -41,7 +41,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                         break;
                 }
                 Console.Clear();
-                Console.WriteLine("Menu ArbolesBinarios: \n \n1- crear un arbol. \n2- recorridos. \n3- buscar elemento en un arbol. \n4- eliminar arbol. \n \n0- Salir.");
+                Console.WriteLine("Menu ArbolesGenerales: \n \n1- crear un ArbolGeneral. \n2- recorridos de ArbolesGenerales. \n3- buscar elemento en un ArbolGeneral. \n4- eliminar ArbolGeneral. \n \n0- Salir.");
                 Console.WriteLine("Ingrese una opcion:");
                 opcion = ingresarEntero();
             }
@@ -51,7 +51,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         private void crearArbol()
         {
             Console.Clear();
-            Console.WriteLine("Menu Crear Arbol: \n  \n1- crear un arbol de enteros. \n2- crear un arbol de strings. \n \n0- Salir.");
+            Console.WriteLine("Menu Crear ArbolGeneral: \n  \n1- crear un ArbolGeneral de enteros. \n2- crear un ArbolGeneral de strings. \n \n0- Salir.");
             Console.WriteLine("Ingrese una opcion:");
             opcion = ingresarEntero();
             while (opcion != 0)
@@ -74,7 +74,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
 
                 }
                 Console.Clear();
-                Console.WriteLine("Menu Crear Arbol: \n \n1- crear un arbol de enteros. \n2- crear un arbol de strings. \n \n0- Salir.");
+                Console.WriteLine("Menu Crear ArbolGeneral: \n \n1- crear un ArbolGeneral de enteros. \n2- crear un ArbolGeneral de strings. \n \n0- Salir.");
                 Console.WriteLine("Ingrese una opcion:");
                 opcion = ingresarEntero();
             }
@@ -84,13 +84,25 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         {
 
             Console.WriteLine("Ingrese dato (entero):");
-            int dato = int.Parse(Console.ReadLine());
+            int dato = ingresarEntero();
             ArbolGeneral<int> arbolEnteros = new ArbolGeneral<int>(dato);
             Console.Clear();
-            Console.WriteLine($"Desea agregarle un hijo al {dato}? \n1- Si. \n2- No.");
+            Console.WriteLine($"Desea agregarle un hijo al {arbolEnteros.getDatoRaiz()}? \n1- Si. \n2- No.");
             opcion = ingresarEntero();
+            while(opcion != 2)
+            {
+                if(opcion == 1)
+                {
+                    arbolEnteros.agregarHijo(crearArbolEnteros());
+                    Console.WriteLine($"Desea agregarle otro hijo al {arbolEnteros.getDatoRaiz()}? \n1- Si. \n2- No.");
+                }
+                else
+                {
+                    Console.WriteLine($"La opcion {opcion} no es valida por vavor intente de nuevo:");
+                }
+                opcion = ingresarEntero();
+            }
             
-            //implementar
 
             return arbolEnteros;
         }
@@ -101,13 +113,24 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
             string dato = Console.ReadLine();
             ArbolGeneral<string> arbolStrings = new ArbolGeneral<string>(dato);
             Console.Clear();
-            Console.WriteLine($"Desea agregarle un hijo a {dato}? \n1- Si. \n2- No.");
-            // implementar
-           
-            
+            Console.WriteLine($"Desea agregarle un hijo al {arbolStrings.getDatoRaiz()}? \n1- Si. \n2- No.");
+            opcion = ingresarEntero();
+            while (opcion != 2)
+            {
+                if(opcion == 1)
+                {
+                    arbolStrings.agregarHijo(crearArbolStrings());
+                    Console.WriteLine($"Desea agregarle otro hijo al {arbolStrings.getDatoRaiz()}? \n1- Si. \n2- No.");
+                }
+                else
+                {
+                    
+                }
+                opcion = ingresarEntero();
+            }
+
 
             return arbolStrings;
-
         }
 
 
@@ -121,7 +144,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         private void recorridos()
         {
             Console.Clear();
-            Console.WriteLine("Menu Recorridos: \n \n1- Recorridos de arbol de enteros. \n2- Recorridos de arbol de strings. \n \n0- Salir.");
+            Console.WriteLine("Menu Recorridos de ArbolGeneral: \n \n1- Recorridos de ArbolGeneral de enteros. \n2- Recorridos de ArbolGeneral de strings. \n \n0- Salir.");
             Console.WriteLine("Ingrese una opcion:");
             opcion = ingresarEntero();
             while (opcion != 0)
@@ -144,7 +167,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
 
                 }
                 Console.Clear();
-                Console.WriteLine("Menu Recorridos: \n \n1- Recorridos de arbol de enteros. \n2- Recorridos de arbol de strings. \n \n0- Salir.");
+                Console.WriteLine("Menu Recorridos de ArbolGeneral: \n \n1- Recorridos de ArbolGeneral de enteros. \n2- Recorridos de ArbolGeneral de strings. \n \n0- Salir.");
                 Console.WriteLine("Ingrese una opcion:");
                 opcion = ingresarEntero();
             }
@@ -153,7 +176,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         private void recorridoEnteros()
         {
             Console.Clear();
-            Console.WriteLine("Menu Recorrido de arbol de enteros:");
+            Console.WriteLine("Menu Recorrido de ArbolGeneral de enteros:");
             for (int i = 0; i < arbolesEnteros.Count; i++)
             {
                 Console.WriteLine(i + 1 + " - " + arbolesEnteros[i].getDatoRaiz());
@@ -169,12 +192,12 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                 }
 
                 Console.Clear();
-                Console.WriteLine("Menu Recorrido de arbol de enteros:");
+                Console.WriteLine("Menu Recorrido de ArbolGeneral de enteros:");
                 for (int i = 0; i < arbolesEnteros.Count; i++)
                 {
                     Console.WriteLine(i + 1 + " - " + arbolesEnteros[i].getDatoRaiz());
                 }
-                Console.WriteLine("0 - Salir");
+                Console.WriteLine("\n0 - Salir\n");
                 Console.WriteLine("Elija un arbol:");
                 opcion = ingresarEntero();
             }
@@ -212,7 +235,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         private void recorrerEntero(ArbolGeneral<int> arbol)
         {
             Console.Clear();
-            Console.WriteLine("Menu Recorridos: \n \n \n1- InOrden. \n2- PreOrden. \n3- PostOrden \n4- PorNiveles. \n5- EntreNiveles. \n \n0- Salir.");
+            Console.WriteLine("Menu Recorridos - ArbolGeneral de enteros: \n \n \n1- In orden. \n2- Pre orden. \n3- Post orden \n4- Por niveles. \n5- Por niveles con separacion. \n \n0- Salir.");
             Console.Write("\n Ingrese una opcion:");
             opcion = ingresarEntero();
             while (opcion != 0)
@@ -221,31 +244,31 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                 {
                     case 1:
                         Console.Clear();
-                        Console.WriteLine("Recorrido InOrden:");
+                        Console.WriteLine($"Recorrido InOrden del ArbolGeneral ({arbol.getDatoRaiz()}):");
                         arbol.inorden();
                         Console.ReadKey();
                         break;
                     case 2:
                         Console.Clear();
-                        Console.WriteLine("Recorrido PreOrden:");
+                        Console.WriteLine($"Recorrido PreOrden del ArbolGeneral ({arbol.getDatoRaiz()}):");
                         arbol.preorden();
                         Console.ReadKey();
                         break;
                     case 3:
                         Console.Clear();
-                        Console.WriteLine("Recorrido PostOrden:");
+                        Console.WriteLine($"Recorrido PostOrden del ArbolGeneral ({arbol.getDatoRaiz()}):");
                         arbol.postorden();
                         Console.ReadKey();
                         break;
                     case 4:
                         Console.Clear();
-                        Console.WriteLine("Recorrido PorNiveles:");
+                        Console.WriteLine($"Recorrido PorNiveles del ArbolGeneral ({arbol.getDatoRaiz()}):");
                         arbol.porNiveles();
                         Console.ReadKey();
                         break;
                     case 5:
                         Console.Clear();
-                        Console.WriteLine($"Recorrido por niveles con separacion:");
+                        Console.WriteLine($"Recorrido por niveles con separacion del ArbolGeneral ({arbol.getDatoRaiz()}):");
                         arbol.porNivelesConSeparacion();
                         Console.ReadKey();
                         break;
@@ -257,7 +280,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
 
                 }
                 Console.Clear();
-                Console.WriteLine("Menu Recorridos: \n \n1- InOrden. \n2- PreOrden. \n3- PostOrden \n4- PorNiveles. \n5- EntreNiveles. \n \n0- Salir.");
+                Console.WriteLine("Menu Recorridos - ArbolGeneral de enteros: \n \n \n1- In orden. \n2- Pre orden. \n3- Post orden \n4- Por niveles. \n5- Por niveles con separacion. \n \n0- Salir.");
                 Console.Write("\n Ingrese una opcion:");
                 opcion = ingresarEntero();
             }
@@ -266,7 +289,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         private void recorrerString(ArbolGeneral<string> arbol)
         {
             Console.Clear();
-            Console.WriteLine("Menu Recorridos: \n \n \n1- InOrden. \n2- PreOrden. \n3- PostOrden \n4- PorNiveles. \n5- EntreNiveles. \n \n0- Salir.");
+            Console.WriteLine("Menu Recorridos - ArbolGeneral de strings: \n \n \n1- In orden. \n2- Pre orden. \n3- Post orden \n4- Por niveles. \n5- Por niveles con separacion. \n \n0- Salir.");
             Console.Write("\n Ingrese una opcion:");
             opcion = ingresarEntero();
             while (opcion != 0)
@@ -275,31 +298,31 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                 {
                     case 1:
                         Console.Clear();
-                        Console.WriteLine("Recorrido InOrden:");
+                        Console.WriteLine($"Recorrido InOrden del ArbolGeneral ({arbol.getDatoRaiz()}):");
                         arbol.inorden();
                         Console.ReadKey();
                         break;
                     case 2:
                         Console.Clear();
-                        Console.WriteLine("Recorrido PreOrden:");
+                        Console.WriteLine($"Recorrido PreOrden del ArbolGeneral ({arbol.getDatoRaiz()}):");
                         arbol.preorden();
                         Console.ReadKey();
                         break;
                     case 3:
                         Console.Clear();
-                        Console.WriteLine("Recorrido PostOrden:");
+                        Console.WriteLine($"Recorrido PostOrden del ArbolGeneral ({arbol.getDatoRaiz()}):");
                         arbol.postorden();
                         Console.ReadKey();
                         break;
                     case 4:
                         Console.Clear();
-                        Console.WriteLine("Recorrido PorNiveles:");
+                        Console.WriteLine($"Recorrido PorNiveles del ArbolGeneral ({arbol.getDatoRaiz()}):");
                         arbol.porNiveles();
                         Console.ReadKey();
                         break;
                     case 5:
                         Console.Clear();
-                        Console.WriteLine($"Recorrido por niveles con separacion:");
+                        Console.WriteLine($"Recorrido por niveles con separacion del ArbolGeneral ({arbol.getDatoRaiz()}):");
                         arbol.porNivelesConSeparacion();
                         Console.ReadKey();
                         break;
@@ -311,7 +334,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
 
                 }
                 Console.Clear();
-                Console.WriteLine("Menu Recorridos: \n \n1- InOrden. \n2- PreOrden. \n3- PostOrden \n4- PorNiveles. \n5- EntreNiveles. \n \n0- Salir.");
+                Console.WriteLine("Menu Recorridos - ArbolGeneral de strings: \n \n \n1- In orden. \n2- Pre orden. \n3- Post orden \n4- Por niveles. \n5- Por niveles con separacion. \n \n0- Salir.");
                 Console.Write("\n Ingrese una opcion:");
                 opcion = ingresarEntero();
             }
@@ -321,15 +344,47 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         //************************//
         //*** buscar Elementos ***//
         //************************//
+
+        private void buscarElementos()
+        {
+            Console.Clear();
+            Console.WriteLine("Menu Recorridos de ArbolGeneral: \n \n1- Buscar Elementos en un ArbolGeneral de enteros. \n2- Buscar Elementos en un ArbolGeneral de strings. \n \n0- Salir.");
+            Console.WriteLine("Ingrese una opcion:");
+            opcion = ingresarEntero();
+            while (opcion != 0)
+            {
+                switch (opcion)
+                {
+                    case 1:
+                        Console.Clear();
+                        buscarElementoEntero();
+                        break;
+                    case 2:
+                        Console.Clear();
+                        buscarElementoString();
+                        break;
+
+                    default:
+                        Console.WriteLine($"{opcion} no es una opcion valida \npresione una telca para volver a intentar.");
+                        Console.ReadKey();
+                        break;
+
+                }
+                Console.Clear();
+                Console.WriteLine("Menu Recorridos de ArbolGeneral: \n \n1- Buscar Elementos en un ArbolGeneral de enteros. \n2- Buscar Elementos en un ArbolGeneral de strings. \n \n0- Salir.");
+                Console.WriteLine("Ingrese una opcion:");
+                opcion = ingresarEntero();
+            }
+        }
         private void buscarElementoEntero()
         {
             Console.Clear();
-            Console.WriteLine("Menu Buscar un elemento en un arbol de enteros:");
+            Console.WriteLine("Menu Buscar un elemento en un ArbolGeneral de enteros:");
             for (int i = 0; i < arbolesEnteros.Count; i++)
             {
                 Console.WriteLine(i + 1 + " - " + arbolesEnteros[i].getDatoRaiz());
             }
-            Console.WriteLine("0 - Salir");
+            Console.WriteLine("\n0 - Salir\n");
             Console.WriteLine("Elija un arbol:");
             opcion = ingresarEntero();
             while (opcion != 0)
@@ -340,12 +395,12 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                 }
 
                 Console.Clear();
-                Console.WriteLine("Menu Recorrido de arbol de enteros:");
+                Console.WriteLine("Menu Recorrido de ArbolGeneral de enteros:");
                 for (int i = 0; i < arbolesEnteros.Count; i++)
                 {
                     Console.WriteLine(i + 1 + " - " + arbolesEnteros[i].getDatoRaiz());
                 }
-                Console.WriteLine("0 - Salir");
+                Console.WriteLine("\n0 - Salir\n");
                 Console.WriteLine("Elija un arbol:");
                 opcion = ingresarEntero();
             }
@@ -354,29 +409,63 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         private void buscarEntero(ArbolGeneral<int> arbol)
         {
             Console.Clear();
-            Console.WriteLine($"Inserte el elemento que desea buscar en el arbol {arbol}");
+            Console.WriteLine($"Inserte el elemento que desea buscar en el arbol {arbol.getDatoRaiz()}");
             int elemento = ingresarEntero();
             if (arbol.nivel(elemento) != -1)
             {
-                Console.WriteLine($"El elemento {elemento} se ecuentra en el nivel {arbol.nivel(elemento)} {arbol}");
+                Console.WriteLine($"El elemento {elemento} se ecuentra en el nivel {arbol.nivel(elemento)} del ArbolGeneral ({arbol.getDatoRaiz()})");
+                Console.ReadKey();
             }
             else
             {
-                Console.WriteLine($"El elemento {elemento} NO existe en el arbol {arbol}");
+                Console.WriteLine($"El elemento {elemento} NO existe en el ArbolGeneral ({arbol.getDatoRaiz()})");
+                Console.ReadKey();
+            }
+        }
+
+        private void buscarElementoString()
+        {
+            Console.Clear();
+            Console.WriteLine("Menu Buscar un elemento en un ArbolGeneral de strings:");
+            for (int i = 0; i < arbolesStrings.Count; i++)
+            {
+                Console.WriteLine(i + 1 + " - " + arbolesStrings[i].getDatoRaiz());
+            }
+            Console.WriteLine("\n0 - Salir\n");
+            Console.WriteLine("Elija un arbol:");
+            opcion = ingresarEntero();
+            while (opcion != 0)
+            {
+                if (opcion - 1 < arbolesStrings.Count)
+                {
+                    buscarString(arbolesStrings[opcion - 1]);
+                }
+
+                Console.Clear();
+                Console.WriteLine("Menu Recorrido de ArbolGeneral de enteros:");
+                for (int i = 0; i < arbolesStrings.Count; i++)
+                {
+                    Console.WriteLine(i + 1 + " - " + arbolesStrings[i].getDatoRaiz());
+                }
+                Console.WriteLine("\n0 - Salir\n");
+                Console.WriteLine("Elija un arbol:");
+                opcion = ingresarEntero();
             }
         }
         private void buscarString(ArbolGeneral<string> arbol)
         {
             Console.Clear();
-            Console.WriteLine($"Inserte el elemento que desea buscar en el arbol {arbol}");
+            Console.WriteLine($"Inserte el elemento que desea buscar en el ArbolGeneral {arbol}");
             string elemento = Console.ReadLine();
             if (arbol.nivel(elemento) != -1)
             {
-                Console.WriteLine($"El elemento {elemento} se encuentra en el nivel {arbol.nivel(elemento)} del arbol ({arbol})");
+                Console.WriteLine($"El elemento {elemento} se ecuentra en el nivel {arbol.nivel(elemento)} del ArbolGeneral ({arbol.getDatoRaiz()})");
+                Console.ReadKey();
             }
             else
             {
-                Console.WriteLine($"El elemento {elemento} NO existe en el arbol ({arbol})");
+                Console.WriteLine($"El elemento {elemento} NO existe en el ArbolGeneral ({arbol.getDatoRaiz()})");
+                Console.ReadKey();
             }
         }
 
@@ -392,18 +481,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
         //**   Auxiliares   **//
         //********************//
 
-        private int[] ingresarNiveles()
-        {
-            int[] niveles = new int[2];
-            Console.WriteLine("Recorrido entre nivel (ingrese nivel):");
-            int n = ingresarEntero();
-            Console.WriteLine("y el nivel (ingrese segundo nivel):");
-            int m = ingresarEntero();
-            niveles[0] = n;
-            niveles[1] = m;
-
-            return niveles;
-        }
+        
 
         private int ingresarEntero()
         {
