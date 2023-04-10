@@ -250,7 +250,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
             Console.WriteLine("Menu Recorrido de ArbolBinario de enteros:");
             for (int i = 0; i < arbolesEnteros.Count; i++)
             {
-                Console.WriteLine(i+1 +" - " + arbolesEnteros[i].getDatoRaiz());
+                Console.WriteLine($"{i+1}- ({arbolesEnteros[i].getDatoRaiz()})  -  Altura: {arbolesEnteros[i].Altura()}");
             }
             Console.WriteLine("0 - Salir");
             Console.WriteLine("Elija un arbol:");
@@ -266,7 +266,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                 Console.WriteLine("Menu Recorrido de ArbolBinario de enteros:");
                 for (int i = 0; i < arbolesEnteros.Count; i++)
                 {
-                    Console.WriteLine(i + 1 + " - " + arbolesEnteros[i].getDatoRaiz());
+                    Console.WriteLine($"{i + 1}- ({arbolesEnteros[i].getDatoRaiz()})  -  Altura: {arbolesEnteros[i].Altura()}");
                 }
                 Console.WriteLine("0 - Salir");
                 Console.WriteLine("Elija un arbol:");
@@ -279,7 +279,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
             Console.WriteLine("Menu Recorrido de ArbolBinario de strings:");
             for (int i = 0; i < arbolesStrings.Count; i++)
             {
-                Console.WriteLine(i + 1 + " - " + arbolesStrings[i].getDatoRaiz());
+                Console.WriteLine($"{i + 1}- ({arbolesStrings[i].getDatoRaiz()})  -  Altura: {arbolesStrings[i].Altura()}");
             }
             Console.WriteLine("0 - Salir");
             Console.WriteLine("Elija un arbol:");
@@ -292,10 +292,10 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
                 }
 
                 Console.Clear();
-                Console.WriteLine("Menu Recorrido de ArbolBinario de enteros:");
+                Console.WriteLine("Menu Recorrido de ArbolBinario de strings:");
                 for (int i = 0; i < arbolesStrings.Count; i++)
                 {
-                    Console.WriteLine(i + 1 + " - " + arbolesStrings[i].getDatoRaiz());
+                    Console.WriteLine($"{i + 1}- ({arbolesStrings[i].getDatoRaiz()})  -  Altura: {arbolesStrings[i].Altura()}");
                 }
                 Console.WriteLine("0 - Salir");
                 Console.WriteLine("Elija un arbol:");

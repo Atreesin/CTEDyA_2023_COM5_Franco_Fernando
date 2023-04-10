@@ -11,3 +11,4 @@ C:\Users\atree\Desktop\ingenieria informatica\CTED&A\CTEDyA_2023_COM5_Franco_Fer
 C:\Users\atree\Desktop\ingenieria informatica\CTED&A\CTEDyA_2023_COM5_Franco_Fernando\TPS\obj\Release\netcoreapp3.1\CTEDyA_2023_COM5_Franco_Fernando.dll
 C:\Users\atree\Desktop\ingenieria informatica\CTED&A\CTEDyA_2023_COM5_Franco_Fernando\TPS\obj\Release\netcoreapp3.1\CTEDyA_2023_COM5_Franco_Fernando.pdb
 C:\Users\atree\Desktop\ingenieria informatica\CTED&A\CTEDyA_2023_COM5_Franco_Fernando\TPS\obj\Release\netcoreapp3.1\CTEDyA_2023_COM5_Franco_Fernando.genruntimeconfig.cache
+C:\Users\atree\Desktop\ingenieria informatica\CTED&A\CTEDyA_2023_COM5_Franco_Fernando\TPS\obj\Release\netcoreapp3.1\CTEDyA_2023_COM5_Franco_Fernando.csproj.AssemblyReference.cache

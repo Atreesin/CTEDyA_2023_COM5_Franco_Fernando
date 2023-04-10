@@ -102,6 +102,7 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
 			this.datos[idx2] = aux;
 		}
 	}
+	
 
 
 }

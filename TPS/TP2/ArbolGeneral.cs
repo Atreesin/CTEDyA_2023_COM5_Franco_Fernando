@@ -62,6 +62,52 @@ namespace CTEDyA_2023_COM5_Franco_Fernando
 
 		}
 
+		public int ancho()
+        {
+			int ancho = 1;
+			Cola<ArbolGeneral<T>> c = new Cola<ArbolGeneral<T>>();
+			ArbolGeneral<T> arbolAux;
+			int anchoActual = 0;
+
+			// encolamos raiz
+			c.encolar(this);
+			// encolamos null
+			c.encolar(null);
+
+
+			// procesamos cola
+			while (!c.esVacia())
+			{
+				arbolAux = c.desencolar();
+
+				if (arbolAux == null)
+				{
+					
+					if(ancho < anchoActual)
+                    {
+						ancho = anchoActual;
+                    }
+					anchoActual = 0;
+					if (!c.esVacia())
+					{
+						c.encolar(null);
+					}
+				}
+				else
+				{
+					
+					foreach (var hijo in arbolAux.getHijos())
+                    {
+						anchoActual += 1;
+						c.encolar(hijo);
+					}
+						
+				}
+			}
+
+			return ancho;
+        }
+
 		public int nivel(T dato)
 		{
 			Cola<ArbolGeneral<T>> c = new Cola<ArbolGeneral<T>>();
